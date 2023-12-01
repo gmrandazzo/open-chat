@@ -1,0 +1,15 @@
+version: '3.6'
+
+services:
+  llama-gpt-api-7b:
+    tty: true
+    build:
+      context: .
+      dockerfile: Dockerfile-cpu
+    ports:
+      - 8000:8000
+      - 8001:3000
+    volumes:
+      - './models:/models'
+      - './run.sh:/app/run.sh'
+    privileged: true
